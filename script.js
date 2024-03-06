@@ -26,3 +26,17 @@ async function fetchAndShowVideos() {
 }
 
 fetchAndShowVideos();
+
+//NOT BEST PRACTICE:
+
+const searchBar = document.querySelector(".pesquisar__input");
+
+searchBar.addEventListener("inupt", filterSearch);
+
+function filterSearch() {
+  const videos = document.querySelectorAll(".videos__item");
+
+  if (searchBar.value != "") {
+  } else {
+  }
+}
