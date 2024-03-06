@@ -6,6 +6,9 @@ async function fetchAndShowVideos() {
     const videos = await fetchVideos.json();
 
     videos.forEach((video) => {
+      if (video.categoria == "") {
+        throw new Error("Video sem categoria");
+      }
       videosContainer.innerHTML += `
           <li class="videos__item">
               <iframe src="${video.url}" title="${video.titulo}" frameborder="0" allowfullscreen></iframe>
