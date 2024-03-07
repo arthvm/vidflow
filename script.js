@@ -16,6 +16,7 @@ async function fetchAndShowVideos() {
                 <img class="img-canal" src=${video.imagem} alt="logo do canal">
                 <h3 class="titulo-video">${video.titulo}</h3>
                 <p class="titulo-canal">${video.descricao}</p>
+                <p class="categoria" hidden>${video.categoria}</p>
               </div>
           </li>
       `;
@@ -61,7 +62,19 @@ categoryBtns.forEach((btn) => {
   });
 });
 
-function filterCategory(category) {
+function filterCategory(categoryFilter) {
   const videos = document.querySelectorAll(".videos__item");
-  videos.forEach((video) => {});
+  videos.forEach((video) => {
+    let videoCategory = video
+      .querySelector(".categoria")
+      .textContent.toUpperCase();
+    let filter = categoryFilter.toUpperCase();
+
+    video.style.display =
+      filter != "TUDO"
+        ? videoCategory.includes(filter)
+          ? "block"
+          : "none"
+        : "block";
+  });
 }
