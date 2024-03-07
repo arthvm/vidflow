@@ -31,12 +31,21 @@ fetchAndShowVideos();
 
 const searchBar = document.querySelector(".pesquisar__input");
 
-searchBar.addEventListener("inupt", filterSearch);
+searchBar.addEventListener("input", filterSearch);
 
 function filterSearch() {
   const videos = document.querySelectorAll(".videos__item");
+  const searchValue = searchBar.value.toUpperCase();
 
-  if (searchBar.value != "") {
-  } else {
-  }
+  videos.forEach((video) => {
+    const title = video
+      .querySelector(".titulo-video")
+      .textContent.toUpperCase();
+
+    video.style.display = searchBar
+      ? title.includes(searchValue)
+        ? "block"
+        : "none"
+      : "block";
+  });
 }
