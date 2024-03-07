@@ -49,3 +49,19 @@ function filterSearch() {
       : "block";
   });
 }
+
+//NOT BEST PRACTICE (AGAIN!!!)
+
+const categoryBtns = document.querySelectorAll(".superior__item");
+
+categoryBtns.forEach((btn) => {
+  let categoryName = btn.getAttribute("name");
+  btn.addEventListener("click", () => {
+    filterCategory(categoryName);
+  });
+});
+
+function filterCategory(category) {
+  const videos = document.querySelectorAll(".videos__item");
+  videos.forEach((video) => {});
+}
